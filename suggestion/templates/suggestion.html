@@ -1,0 +1,286 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ChooseMovieForME - Get Movie Recommendations of Your Choice
+{% endblock %}
+
+{% block content %}
+
+
+<section class="py-15 flex items-center min-h-screen justify-center">
+    <div class="mx-auto max-w-[43rem] bg-[#1c1c1cd6] p-8 md:rounded-2xl border-solid border-b-2 md:border-2 border-white">
+      <div class="text-center">
+        <p class="text-lg font-medium leading-8 text-teal-600">We choose movie for you</p>
+        <h1 class="mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-white">ChooseMovieForME Movie Recommendation Engine&nbsp;</h1>
+        <p class="mt-3 text-lg leading-relaxed text-slate-400">Asking yourself what film should I watch tonight. ChooseMovieForME has made it easy for you.&nbsp;Our tailored suggestions will help you waste no more time.</p>
+      </div>
+  
+      <div class="mt-6 h-40 flex items-center justify-center gap-4">
+        <a class='flex w-1/2 h-1/2 justify-center items-center border-solid border-4 rounded-md bg-yellow-600 text-white' href='{% url "random" %}'>
+        <div class = 'font-medium text-sm md:text-base md:font-medium'>
+          Random
+        </div></a>
+        <a class='flex w-1/2 h-1/2 justify-center items-center border-solid border-4 rounded-md cursor-pointer bg-teal-600 text-white' href='{% url "mood" %}'>
+          <div class = 'font-medium text-sm md:text-base md:font-medium'>
+            Advanced
+        </div></a>
+        <a class='flex w-1/2 h-1/2 justify-center items-center border-solid border-4 rounded-md cursor-pointer bg-purple-600 text-white' href='{% url "similar" %}'>
+          <div class = 'font-medium text-sm md:text-base md:font-medium'>
+           Similar Movies
+        </div></a>
+      </div>
+    </div>
+  </section>
+
+
+  <div class=" py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 py-6 lg:py-8 lg:px-8 bg-[#1c1c1cd6] md:rounded-2xl border-y-2 border-x-0 border-solid md:border-2 border-white">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-cyan-600">We Pick Movie For You</h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-yellow-600 sm:text-4xl">Spend Your Time Watching a Movie,<br> Not Finding It</p>
+        <p class="mt-6 text-lg leading-8 text-slate-300">ChooseMovieForME is a movie picker which helps its users to find movies best suited to thier choices.</p>
+      </div>
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+          <div class="relative pl-16">
+            <dt class="text-base font-semibold leading-7 text-yellow-600">
+              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                </svg>
+              </div>
+              Similar Movies
+            </dt>
+            <dd class="mt-2 text-base leading-7 text-slate-300">You have watched a film and you liked it so much. Now you want to watch a movie similar to it, we have got you covered. Our recommended movie will be similar to your watched movie.</dd>
+          </div>
+          <div class="relative pl-16">
+            <dt class="text-base font-semibold leading-7 text-yellow-600">
+              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              </div>
+              Random Suggestion
+            </dt>
+            <dd class="mt-2 text-base leading-7 text-slate-300">I you have no idea what are you looking for, let us help you with our random movie suggestions. We suggest random but hihgly popular movies.</dd>
+          </div>
+          <div class="relative pl-16">
+            <dt class="text-base font-semibold leading-7 text-yellow-600">
+              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+              </div>
+              Advanced Suggestion
+            </dt>
+            <dd class="mt-2 text-base leading-7 text-slate-300">You are looking for a movie for a specific occasion, we have got you covered. Our algorithm makes sure to suggest a movie based on your occasion and mood.</dd>
+          </div>
+          <div class="relative pl-16">
+            <dt class="text-base font-semibold leading-7 text-yellow-600">
+              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                </svg>
+              </div>
+              Where to Watch
+            </dt>
+            <dd class="mt-2 text-base leading-7 text-slate-300">we help our users to get to the movie right away. So that their precious time is spent watching it.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  
+<div class='w-3/4 flex flex-col mx-auto bg-[#1c1c1cd6] mb-10 rounded-2xl border-solid border-2 border-white'>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="font-manrope text-4xl font-bold text-yellow-500 text-center my-5">FAQ</h2>
+  </div>
+
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-1"
+      >
+        <span class='text-yellow-500'>What is ChooseMovieForME?</span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-1"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        ChooseMovieForME is an AI based Movie Recommender Engine. It helps you to find the best movie for you based on your mood, genre, decade and many more.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-2"
+      >
+        <span class='text-yellow-500'>How to use ChooseMovieForME?</span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-2"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        You can use ChooseMovieForME by selecting the mood, genre, decade and occasion. Based on your selection, we will suggest you the best movie.
+        You can also use our random suggestion feature to get a random movie suggestion.
+        You can get similar movies to the movie you have watched by using our similar movie feature.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-3"
+      >
+        <span class='text-yellow-500'>How does the movie recommender system work?</span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-3"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        ChooseMovieForME movie suggestion system uses a sophisticated algorithm that analyzes user's choices, and preferences to suggest movies that user might like. It also considers the mood of user to recommend films that fit user's current state of mind.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-4"
+      >
+        <span class='text-yellow-500'>Can I get movie recommendations without creating an account?</span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-4"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+      Yes, you can get random movie recommendations without an account. ChooseMovieForME is a free movie recommendation engine that allows you to get movie suggestions without creating an account.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-5"
+      >
+        <span class='text-yellow-500'>How much time movie recommendtions save?
+        </span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-5"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        On average, ChooseMovieForME saves 6 hour per month of your time by suggesting the best movie for you. This time can be spent watching the movie instead of finding it.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-6"
+      >
+        <span class='text-yellow-500'>How do I find a movie I forgot the name of?
+        </span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-6"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        Use ChooseMovieForME Recommendation Engine to find the movie you forgot the name of. Use the keyword section to describe the movie in your own word, and we will find you the movie.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-7"
+      >
+        <span class='text-yellow-500'>Can i get suggestions for Telugu movies?</span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-7"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        Absolutely! Our database includes a vast array of Telugu films, ensuring that Telugu cinema lovers also find best movies to enjoy.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-8"
+      >
+        <span class='text-yellow-500'>Is the movie recommender system available on mobile devices?</span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-8"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        Our website is mobile-friendly, and we are also working on a dedicated app to bring you an even better mobile experience.
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mb-3">
+    <h6 class="mb-0">
+      <button
+        class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-white rounded-t-1 group text-dark-500"
+        data-collapse-target="animated-collapse-9"
+      >
+        <span  class='text-yellow-500'>What is the best movie suggestion engine?</span>
+        <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+      </button>
+    </h6>
+    <div
+      data-collapse="animated-collapse-9"
+      class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <div class="p-4 text-sm leading-normal text-slate-300">
+        ChooseMovieForME is the best movie suggestion engine. It uses AI to suggest the best movie for you based on your mood, genre, decade and occasion. It also suggests similar movies to the movie you have watched, and random movies.
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+{% endblock %}

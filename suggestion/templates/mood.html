@@ -1,0 +1,433 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Mood Based Movie Picker - Get Mood Based Movie Suggestions
+{% endblock %}
+
+{% block content %}
+<div class='flex items-center flex-col my-5'>
+    <div class="ax-w-md my-10 bg-[#1c1c1cd6] border-2 border-white shadow-lg rounded-lg overflow-hidden mx-10">
+        <div class="text-2xl py-4 px-6 text-yellow-500 text-center font-bold uppercase">
+            <h1>Mood Based Movie Picker</h1>
+        </div>
+        <form class="py-4 px-6" method="GET">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label class="block text-yellow-500 font-bold mb-2" for="occasion">
+                    Occasion
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="occasion" name="occasion">
+                    <option value="">Select an Occasion</option>
+                    <option value="Watching by Myself">Watching by Myself</option>
+                    <option value="Watching with Friends">Watching with Friends</option>
+                    <option value="Watching with Date">Watching with Date</option>
+                    <option value="Watching with Family">Watching with Family</option>
+                    <option value="Getting Bored">Getting Bored</option>
+                    
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-yellow-500 font-bold mb-2" for="genre">
+                    Genre
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="genre" name="genre">
+                    <option value="">Select a Genre</option>
+                    <option value="28">Action</option>
+                    <option value="12">Adventure</option>
+                    <option value="16">Animation</option>
+                    <option value="35">Comedy</option>
+                    <option value="80">Crime</option>
+                    <option value="99">Documentary</option>
+                    <option value="18">Drama</option>
+                    <option value="10751">Family</option>
+                    <option value="14">Fantasy</option>
+                    <option value="36">History</option>
+                    <option value="27">Horror</option>
+                    <option value="10402">Music</option>
+                    <option value="9648">Mystery</option>
+                    <option value="10749">Romance</option>
+                    <option value="878">Science Fiction</option>
+                    <option value="10770">TV Movie</option>
+                    <option value="53">Thriller</option>
+                    <option value="10752">War</option>
+                    <option value="37">Western</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-yellow-500 font-bold mb-2" for="lang">
+                    Language
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="lang" name="lang">
+                    <option value="">Select a Language</option>
+                    <option value="en-US">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ta">Tamil</option>
+                    <option value="te">Telugu</option>
+                    <option value="fr">French</option>
+                    <option value="ko">Korean</option>
+                    
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-yellow-500 font-bold mb-2" for="rating">
+                    Rating
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="rating" name="rating">
+                    <option value="">Select Rating</option>
+                    <option value="9">9+</option>
+                    <option value="8">8+</option>
+                    <option value="7">7+</option>
+                    <option value="6">6+</option>
+                    <option value="5">5+</option>
+                    <option value="4">all</option>
+                    
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-yellow-500 font-bold mb-2" for="serviceprovider">
+                    Service Provider
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="serviceprovider" name="serviceprovider">
+                    <option value="">Select a Service Provider</option>
+                    <option value="8">Netflix</option>
+                    <option value="9">HBO</option>
+                    <option value="119">Amazon Prime Video</option>
+                    <option value="350">Apple TV+</option>
+                    <option value="3">Disney+</option>
+                    <option value="15">Hulu</option>
+                    <option value="13">Paramount+</option>
+                    <option value="81">Starz</option>
+                    <option value="35">Showtime</option>
+                    <option value="102">Peacock</option>
+                    <option value="30">HBO Max</option>
+                    <option value="83">BBC iPlayer</option>
+                    <option value="46">Sundance Now</option>
+                    <option value="104">Tubi</option>
+                    <option value="92">Vudu</option>
+                    <option value="27">Pluto TV</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-yellow-500 font-bold mb-2" for="decade">
+                    Decade
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="decade" name="decade">
+                    <option value="">Select a Decade</option>
+                    <option value="1990">1990-2000</option>
+                    <option value="2000">2000-2010</option>
+                    <option value="2010">2010-2020</option>
+                    <option value="2020">2020 onwards</option>
+                </select>
+            </div>
+            
+            
+            <div class="flex items-center justify-center mb-4">
+                <button
+                class="cursor-pointer mt-3 border-2 border-gray-300 shadow-sm rounded-full py-3.5 px-7 w-52 flex justify-center items-center bg-[#1c1c1cd6] text-yellow-500 font-semibold mx-auto transition-all duration-300 hover:text-black hover:bg-gray-100"
+                type="submit">
+                    Suggest Me Movies
+                </button>
+            </div>
+    
+        </form>
+    </div>
+</div>
+
+<div class="min-h-screen grid place-items-center font-mono my-10">
+    {% for d in data %}
+    <div class="bg-gray-900 max-w-2/3 rounded-md shadow-lg text-white my-8">
+        <div class="md:flex px-4 leading-none max-w-4xl">
+
+            <div class="flex-none ">
+                <img
+             src="https://image.tmdb.org/t/p/w500{{ d.poster_path }}"
+             alt="pic"
+             class="h-72 w-56 rounded-md transform -translate-y-4 border-4 border-gray-300 shadow-lg"
+               />           
+            </div>
+
+            <div class="flex-col text-gray-300">
+               
+            <p class="pt-4 text-2xl font-bold">{{d.original_title}}</p>
+            <hr class="hr-text" data-content="">
+            <div class="text-md flex justify-between px-4 my-2">
+                <span class="font-bold">{{d.genre_names}}</span>
+                <span class="font-bold"></span>
+            </div>
+            <p class="hidden md:block px-4 my-4 text-sm text-left">{{d.overview}}</p>
+            
+            <p class="flex text-md px-4 my-2">
+              Rating: {{d.vote_average}}/10 
+              <span class="font-bold px-2">|</span>
+              Mood: Dark
+            </p>
+                     
+            <div class="text-xs">
+                <button type="button" class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-900 focus:outline-none focus:shadow-outline">TRAILER</button>
+            
+                <button type="button" class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-900 focus:outline-none focus:shadow-outline">IMDB</button>
+            
+                <button type="button" class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-900 focus:outline-none focus:shadow-outline">AMAZON</button>
+            </div>
+                           
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <section class="w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] my-10 rounded-2xl border-solid border-2 border-white">
+        <div class="container px-6 py-10 mx-auto">
+            <h1 class="text-3xl text-center font-semibold capitalize lg:text-4xl text-yellow-500">How to use Mood Based<br>Suggestion?</h1>
+            
+            <p class="mt-4 text-gray-300 xl:mt-6 dark:text-gray-300">
+                MOOD BASED SUGGESTION is a feature that helps you to find the best movie based on your mood, genre, decade and occasion.
+            </p>
+            
+            <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                <div class="p-8 space-y-3 border-2 border-white rounded-xl">
+                    <span class="inline-block text-yellow-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                        </svg>
+                    </span>
+    
+                    <h1 class="text-2xl font-semibold text-white">Fill the form</h1>
+    
+                    <p class="text-gray-300">
+                        Fill the given form, dont leave any input field for better movie suggestion</p>
+                </div>
+    
+                <div class="p-8 space-y-3 border-2 border-white rounded-xl">
+                    <span class="inline-block text-teal-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                        </svg>
+                    </span>
+    
+                    <h1 class="text-2xl font-semibold text-white">Click on Submit</h1>
+    
+                    <p class="text-gray-300">
+                        Once the form is completed, click on the button given below the form.</p>
+                </div>
+    
+                <div class="p-8 space-y-3 border-2 border-white rounded-xl">
+                    <span class="inline-block text-purple-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </span>
+    
+                    <h1 class="text-2xl font-semibold text-white">Get the suggestion</h1>
+    
+                    <p class="text-gray-300">
+                        Suggestions will be displayed below the form</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <div class=" py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 py-6 lg:py-8 lg:px-8 bg-[#1c1c1cd6] md:rounded-2xl border-y-2 border-x-0 border-solid md:border-2 border-white">
+          <div class="mx-auto max-w-2xl lg:text-center">
+            <h2 class="text-base font-semibold leading-7 text-cyan-600">We Pick Movie For You</h2>
+            <p class="mt-2 text-3xl font-bold tracking-tight text-yellow-600 sm:text-4xl">Why to use ChooseMovieForMe<br> Recomemndation Sysytem</p>
+            <p class="mt-6 text-lg leading-8 text-slate-300">ChooseMovieForMe is a movie picker which helps its users to find movies best suited to thier choices.</p>
+          </div>
+          <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+            <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+              <div class="relative pl-16">
+                <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                    </svg>
+                  </div>
+                  Time-saving & Easy to use
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-slate-300">ChooseMovieForMe: Where a few clicks lead you to the perfect movie, fast and fuss-free!</dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                  </div>
+                  Free & no registration
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-slate-300">Dive into ChooseMovieForMe's sea of cinema with zero fees and no sign-up needed!</dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    </svg>
+                  </div>
+                  Special recommendations for movie dates
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-slate-300">ChooseMovieForMe: Spark romance with our handpicked flicks for your perfect movie date!</dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                    </svg>
+                  </div>
+                  Only high-quality movies
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-slate-300">Quality is our script — MovieChoose brings only the finest films to your screen!</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+
+    <div class='w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] my-10 rounded-2xl border-solid border-2 border-white'>
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="font-manrope text-4xl font-bold text-yellow-500 text-center my-5">FAQ</h2>
+          </div>
+        <div class="relative mb-3">
+          <h6 class="mb-0">
+            <button
+              class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+              data-collapse-target="animated-collapse-1"
+            >
+              <span class='text-yellow-500'>What is Mood Based suggestion?</span>
+              <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+            </button>
+          </h6>
+          <div
+            data-collapse="animated-collapse-1"
+            class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+          >
+            <div class="p-4 text-sm leading-normal text-slate-300">
+              MovieChoose suggests the best movie for you based on your mood, genre, decade and occasion. We ask you to select your mood, genre, decade and occasion and based on your selection, we suggest you the best movie.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="relative mb-3">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-2"
+              >
+                <span class='text-yellow-500'>What is the app that picks movies for couples?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-2"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                MovieChoose offers a special feature for couples looking to find the perfect movie for their date night. It takes into account user's preferences and mood to suggest movies that user will enjoy, ensuring a best movie-watching experience.              </div>
+            </div>
+          </div>
+
+
+          <div class="relative mb-3">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-3"
+              >
+                <span class='text-yellow-500'>Is there a movie app that helps you pick a movie?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-3"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                Yes, MovieChoose is designed to help you pick a movie effortlessly. With its friendly interface and smart recommendation system, finding your next favorite film is just a few clicks away.              </div>
+            </div>
+          </div>
+
+
+          <div class="relative mb-3">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-4"
+              >
+                <span class='text-yellow-500'>Is MovieChoose a free movie app?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-4"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                Yes, MovieChoose is a free app that helps you decide what to watch by providing personalized movie suggestions without any cost. </div>
+            </div>
+          </div>
+
+
+          <div class="relative mb-3">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-5"
+              >
+                <span class='text-yellow-500'>Why do I struggle to pick a movie?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-5"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                The struggle to pick a movie often stems from the paradox of choice; having too many options can be overwhelming. MovieChoose simplifies this by narrowing down the choices to those that align with your preferences.</div>
+            </div>
+          </div>
+
+
+          <div class="relative mb-3">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-6"
+              >
+                <span class='text-yellow-500'>What to watch on date night?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-6"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                For a date night, MovieChoose can suggest a variety of films from romantic comedies to heartfelt dramas that are sure to set the mood for a memorable evening. Just input your preferences, and let MovieChoose handle the rest.</div>
+            </div>
+          </div>
+        
+      </div>
+</div>
+
+
+
+{% endblock %}
