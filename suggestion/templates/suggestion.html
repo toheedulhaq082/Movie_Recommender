@@ -7,28 +7,28 @@ ChooseMovieForME - Get Movie Recommendations of Your Choice
 {% block content %}
 
 
-<section class="py-15 flex items-center min-h-screen justify-center">
-    <div class="mx-auto max-w-[43rem] bg-[#1c1c1cd6] p-8 md:rounded-2xl border-solid border-b-2 md:border-2 border-white">
+<section class="md:py-15 flex items-center min-h-screen justify-center">
+    <div class="mx-auto max-w-[43rem] bg-[#1c1c1cd6] p-8 md:rounded-2xl border-solid border-y-2 md:border-2 border-white">
       <div class="text-center">
         <p class="text-lg font-medium leading-8 text-teal-600">We choose movie for you</p>
-        <h1 class="mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-white">ChooseMovieForME Movie Recommendation Engine&nbsp;</h1>
-        <p class="mt-3 text-lg leading-relaxed text-slate-400">Asking yourself what film should I watch tonight. ChooseMovieForME has made it easy for you.&nbsp;Our tailored suggestions will help you waste no more time.</p>
+        <h1 class="mt-3 md:text-[3.5rem] text-[1.5rem] font-semibold md:font-bold tracking-tight text-white">ChooseMovieForME Movie Recommendation Engine&nbsp;</h1>
+        <p class="mt-3 text-base md:text-lg leading-relaxed text-slate-400">Asking yourself what film should I watch tonight. ChooseMovieForME has made it easy for you.&nbsp;Our tailored suggestions will help you waste no more time.</p>
       </div>
   
-      <div class="mt-6 h-40 flex items-center justify-center gap-4">
-        <a class='flex w-1/2 h-1/2 justify-center items-center border-solid border-4 rounded-md bg-yellow-600 text-white' href='{% url "random" %}'>
-        <div class = 'font-medium text-sm md:text-base md:font-medium'>
-          Random
-        </div></a>
-        <a class='flex w-1/2 h-1/2 justify-center items-center border-solid border-4 rounded-md cursor-pointer bg-teal-600 text-white' href='{% url "mood" %}'>
-          <div class = 'font-medium text-sm md:text-base md:font-medium'>
-            Advanced
-        </div></a>
-        <a class='flex w-1/2 h-1/2 justify-center items-center border-solid border-4 rounded-md cursor-pointer bg-purple-600 text-white' href='{% url "similar" %}'>
-          <div class = 'font-medium text-sm md:text-base md:font-medium'>
-           Similar Movies
-        </div></a>
-      </div>
+        <div class="mt-3 md:mt-6 h-40 flex items-center justify-center gap-4">
+          <a class='flex sm:w-1/2 sm:h-1/2 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-yellow-600 text-white' href='{% url "random" %}'>
+          <div class = 'w-[4.5rem] font-medium text-center text-sm md:text-base md:font-medium'>
+            Random
+          </div></a>
+          <a class='flex sm:w-1/2 sm:h-1/2 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-teal-600 text-white' href='{% url "mood" %}'>
+            <div class = 'w-[4.5rem] font-medium text-center text-sm md:text-base md:font-medium'>
+              Advanced
+            </div></a>
+            <a class='flex sm:w-1/2 sm:h-1/2 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-purple-600 text-white' href='{% url "similar" %}'>
+              <div class = 'w-[4.5rem] font-medium text-center text-sm md:text-base md:font-medium'>
+                Similar
+              </div></a>
+        </div>
     </div>
   </section>
 

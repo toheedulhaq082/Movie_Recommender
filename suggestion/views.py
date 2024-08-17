@@ -44,7 +44,6 @@ def similar(request):
         recommended_movies = recommend(movie, TMDB_API_KEY)
         filtered_recommendations = filter_empty_items(recommended_movies)
         context['recommended'] = filtered_recommendations
-        print(context['recommended'])
         return render(request, 'similar.html', context)
 
     return render(request, 'similar.html',context)
