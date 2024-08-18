@@ -12,16 +12,15 @@
            <header class="mb-4 w-full lg:mb-6 not-format">
                <address class="flex items-center mb-6 not-italic">
                    <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                       <img class="mr-4 md:w-16 md:h-16 h-7 w-7 rounded-full" src="../media/images/author.jpg" alt="Jese Leos">
                        <div>
-                           <a href="#" rel="author" class="md:text-xl text-base font-semibold md:font-bold text-white dark:text-white">{{blog_obj.author}}</a>
+                           <a href="#" rel="author" class="md:text-xl text-base font-semibold md:font-bold text-white dark:text-white">Author: {{blog_obj.author}}</a>
                            <p class="md:text-base text-xs text-gray-400 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="{{blog_obj.created_at}}">{{blog_obj.created_at}}</time></p>
                        </div>
                    </div>
                </address>
                <h1 class="mb-4 text-xl md:text-3xl font-bold md:font-extrabold leading-tight text-white md:mb-6 dark:text-white">{{blog_obj.title}}</h1>
            </header>
-           <div class="mb-6 text-slate-300 bg-transparent text-sm md:text-base tracking-tight md:tracking-normal">
+           <div class="mb-6 text-slate-200 bg-transparent text-base md:text-lg tracking-tight md:tracking-normal">
                <p class=''>{{blog_obj.content | safe}}</p>
             </div>
             

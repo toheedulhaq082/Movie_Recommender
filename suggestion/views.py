@@ -16,8 +16,8 @@ def suggestion(request):
 def random(request):
     context = {}
     try:
-        if request.method == 'GET':
-            context['year'] = get_random_year(int(request.GET['decade']))
+        if request.method == 'POST':
+            context['year'] = get_random_year(int(request.POST['decade']))
             api_url = create_tmdb_query(api_key=TMDB_API_KEY, year=context['year'])
             res = requests.get(api_url)
             data = res.json()['results']
@@ -40,7 +40,7 @@ def similar(request):
     context['titles'] = movie_titles
 
     if request.method == 'POST':
-        movie = request.POST.get('movie')  
+        movie = request.POST['movie']  
         recommended_movies = recommend(movie, TMDB_API_KEY)
         filtered_recommendations = filter_empty_items(recommended_movies)
         context['recommended'] = filtered_recommendations
@@ -51,11 +51,11 @@ def similar(request):
 def mood(request):
     context = {}
     try:
-        if request.method == 'GET':
-            context['genre'] = request.GET['genre']
-            context['year'] = get_random_year(int(request.GET['decade']))
-            context['serviceprovider'] = request.GET['serviceprovider']
-            context['lang'] = request.GET['lang']
+        if request.method == 'POST':
+            context['genre'] = request.POST['genre']
+            context['year'] = get_random_year(int(request.POST['decade']))
+            context['serviceprovider'] = request.POST['serviceprovider']
+            context['lang'] = request.POST['lang']
             api_url = create_tmdb_query(api_key=TMDB_API_KEY, year=context['year'], genre=context['genre'], provider=context['serviceprovider'], language=context['lang'])
             res = requests.get(api_url)
             data = res.json()['results']

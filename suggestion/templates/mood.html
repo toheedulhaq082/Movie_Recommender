@@ -10,7 +10,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
         <div class="text-2xl py-4 px-6 text-yellow-500 text-center font-bold uppercase">
             <h1>Mood Based Movie Picker</h1>
         </div>
-        <form class="py-4 px-6" method="GET">
+        <form class="py-4 px-6" method="POST">
             {% csrf_token %}
             <div class="mb-4">
                 <label class="block text-yellow-500 font-bold mb-2" for="occasion">
@@ -34,7 +34,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
                 </label>
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="genre" name="genre">
+                    id="genre" name="genre" required>
                     <option value="">Select a Genre</option>
                     <option value="28">Action</option>
                     <option value="12">Adventure</option>
@@ -123,7 +123,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
                 </label>
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="decade" name="decade">
+                    id="decade" name="decade" required>
                     <option value="">Select a Decade</option>
                     <option value="1990">1990-2000</option>
                     <option value="2000">2000-2010</option>
@@ -191,10 +191,10 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
 
     <section class="w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] my-10 rounded-2xl border-solid border-2 border-white">
         <div class="container px-6 py-10 mx-auto">
-            <h1 class="text-3xl text-center font-semibold capitalize lg:text-4xl text-yellow-500">How to use Mood Based<br>Suggestion?</h1>
+            <h2 class="text-3xl text-center font-semibold capitalize lg:text-4xl text-yellow-500">How to use Mood Based<br>Movie Picker?</h2>
             
             <p class="mt-4 text-gray-300 xl:mt-6 dark:text-gray-300">
-                MOOD BASED SUGGESTION is a feature that helps you to find the best movie based on your mood, genre, decade and occasion.
+                MOOD based movie picker is a feature that helps you to find the best movie based on your mood, genre, decade and occasion.
             </p>
             
             <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
@@ -206,7 +206,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
                         </svg>
                     </span>
     
-                    <h1 class="text-2xl font-semibold text-white">Fill the form</h1>
+                    <h3 class="text-2xl font-semibold text-white">Fill the form</h3>
     
                     <p class="text-gray-300">
                         Fill the given form, dont leave any input field for better movie suggestion</p>
@@ -219,7 +219,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
                         </svg>
                     </span>
     
-                    <h1 class="text-2xl font-semibold text-white">Click on Submit</h1>
+                    <h3 class="text-2xl font-semibold text-white">Click on Submit</h3>
     
                     <p class="text-gray-300">
                         Once the form is completed, click on the button given below the form.</p>
@@ -232,7 +232,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
                         </svg>
                     </span>
     
-                    <h1 class="text-2xl font-semibold text-white">Get the suggestion</h1>
+                    <h3 class="text-2xl font-semibold text-white">Get the suggestion</h3>
     
                     <p class="text-gray-300">
                         Suggestions will be displayed below the form</p>
@@ -245,9 +245,9 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
     <div class=" py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 py-6 lg:py-8 lg:px-8 bg-[#1c1c1cd6] md:rounded-2xl border-y-2 border-x-0 border-solid md:border-2 border-white">
           <div class="mx-auto max-w-2xl lg:text-center">
-            <h2 class="text-base font-semibold leading-7 text-cyan-600">We Pick Movie For You</h2>
-            <p class="mt-2 text-3xl font-bold tracking-tight text-yellow-600 sm:text-4xl">Why to use ChooseMovieForMe<br> Recomemndation Sysytem</p>
-            <p class="mt-6 text-lg leading-8 text-slate-300">ChooseMovieForMe is a movie picker which helps its users to find movies best suited to thier choices.</p>
+            <h3 class="text-base font-semibold leading-7 text-cyan-600">We Pick Movie For You</h3>
+            <p class="mt-2 text-3xl font-bold tracking-tight text-yellow-500 sm:text-4xl">Why to use Mood Based<br> Movie Picker?</p>
+            <p class="mt-6 text-lg leading-8 text-slate-300">Mood based movie picker is a movie feature of ChooseMovieForME, which helps its users to find movies best suited to thier choices.</p>
           </div>
           <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
@@ -311,7 +311,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
               class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
               data-collapse-target="animated-collapse-1"
             >
-              <span class='text-yellow-500'>What is Mood Based suggestion?</span>
+              <span class='text-yellow-500'>What is Mood Based Movie Picker?</span>
               <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
             </button>
           </h6>
@@ -320,7 +320,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
             class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
           >
             <div class="p-4 text-sm leading-normal text-slate-300">
-              MovieChoose suggests the best movie for you based on your mood, genre, decade and occasion. We ask you to select your mood, genre, decade and occasion and based on your selection, we suggest you the best movie.
+              Mood based movie picker is a feature of ChooseMovieForME, that suggests the best movie for you based on your mood, genre, decade and occasion.
             </div>
           </div>
         </div>
@@ -341,7 +341,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
               class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
             >
               <div class="p-4 text-sm leading-normal text-slate-300">
-                MovieChoose offers a special feature for couples looking to find the perfect movie for their date night. It takes into account user's preferences and mood to suggest movies that user will enjoy, ensuring a best movie-watching experience.              </div>
+                ChooseMovieForME offers a special feature for couples looking to find the perfect movie for their date night. It takes into account user's preferences and mood to suggest movies that user will enjoy, ensuring a best movie-watching experience.              </div>
             </div>
           </div>
 
@@ -361,18 +361,18 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
               class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
             >
               <div class="p-4 text-sm leading-normal text-slate-300">
-                Yes, MovieChoose is designed to help you pick a movie effortlessly. With its friendly interface and smart recommendation system, finding your next favorite film is just a few clicks away.              </div>
+                Yes, ChooseMovieForME is designed to help you pick a movie effortlessly. With its friendly interface and smart recommendation system, finding your next favorite film is just a few clicks away.              </div>
             </div>
           </div>
 
 
-          <div class="relative mb-3">
+          <div class="relative mb-3 w-full">
             <h6 class="mb-0">
               <button
                 class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
                 data-collapse-target="animated-collapse-4"
               >
-                <span class='text-yellow-500'>Is MovieChoose a free movie app?</span>
+                <span class='text-yellow-500'>Is ChooseMovieForME a free movie app?</span>
                 <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
               </button>
             </h6>
@@ -381,7 +381,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
               class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
             >
               <div class="p-4 text-sm leading-normal text-slate-300">
-                Yes, MovieChoose is a free app that helps you decide what to watch by providing personalized movie suggestions without any cost. </div>
+                Yes, ChooseMovieForME is a free app that helps you decide what to watch by providing personalized movie suggestions without any cost. </div>
             </div>
           </div>
 
@@ -401,7 +401,26 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
               class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
             >
               <div class="p-4 text-sm leading-normal text-slate-300">
-                The struggle to pick a movie often stems from the paradox of choice; having too many options can be overwhelming. MovieChoose simplifies this by narrowing down the choices to those that align with your preferences.</div>
+                The struggle to pick a movie often stems from the paradox of choice; having too many options can be overwhelming. ChooseMovieForME simplifies this by narrowing down the choices to those that align with your preferences.</div>
+            </div>
+          </div>
+
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-7"
+              >
+                <span class='text-yellow-500'>How Mood based movie picker helps me pick a movie to watch?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-7"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                Mood based movie picker suggests movies based on user preferences such as occasion, mood etc.</div>
             </div>
           </div>
 
@@ -421,7 +440,7 @@ Mood Based Movie Picker - Get Mood Based Movie Suggestions
               class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
             >
               <div class="p-4 text-sm leading-normal text-slate-300">
-                For a date night, MovieChoose can suggest a variety of films from romantic comedies to heartfelt dramas that are sure to set the mood for a memorable evening. Just input your preferences, and let MovieChoose handle the rest.</div>
+                For a date night, ChooseMovieForME can suggest a variety of films from romantic comedies to heartfelt dramas that are sure to set the mood for a memorable evening. Just input your preferences, and let ChooseMovieForME handle the rest.</div>
             </div>
           </div>
         

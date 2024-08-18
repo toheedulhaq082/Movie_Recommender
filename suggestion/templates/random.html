@@ -7,13 +7,12 @@ Random Movie Picker - Get Random Movie Suggestions
 {% block content %}
 
     <div class='flex items-center flex-col'>
-            <div class="max-w-md my-10 bg-[#1c1c1cd6] border-2 border-white shadow-lg rounded-lg overflow-hidden mx-10">
-                <div class="text-2xl py-4 px-6 text-yellow-500 text-center font-bold uppercase">
+            <div class="max-w-lg w-2/3 my-10 bg-[#1c1c1cd6] border-2 border-white shadow-lg rounded-lg overflow-hidden mx-10">
+                <div class="text-2xl w-full py-4 px-6 text-yellow-500 text-center font-bold uppercase">
                     <h1>Random Movie Picker</h1>
                 </div>
-                <form class="py-4 px-6" method="GET">
+                <form class="py-4 px-6" method="POST">
                     {% csrf_token %}
-                    
                     
                     <div class="mb-4">
                         <label class="block text-yellow-500 font-bold mb-2" for="decade">
@@ -21,7 +20,7 @@ Random Movie Picker - Get Random Movie Suggestions
                         </label>
                         <select
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="decade" name="decade">
+                            id="decade" name="decade" required>
                             <option value="">Select a Decade</option>
                             <option value="1990">1990-2000</option>
                             <option value="2000">2000-2010</option>
@@ -88,7 +87,7 @@ Random Movie Picker - Get Random Movie Suggestions
 
         <section class="w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] my-10 rounded-2xl border-solid border-2 border-white">
             <div class="container px-6 py-10 mx-auto">
-                <h1 class="text-3xl text-center font-semibold capitalize lg:text-4xl text-yellow-500">How to use Random Movie<br>Suggestion?</h1>
+                <h2 class="text-3xl text-center font-semibold capitalize lg:text-4xl text-yellow-500">How to use Random Movie<br>Suggestion?</h2>
                 
                 <p class="mt-4 text-gray-300 xl:mt-6 dark:text-gray-300">
       Random Movie Suggestion is a movie picker which suggests random but populr movies.
@@ -103,7 +102,7 @@ Random Movie Picker - Get Random Movie Suggestions
                             </svg>
                         </span>
         
-                        <h1 class="text-2xl font-semibold text-white">Fill the form</h1>
+                        <h3 class="text-2xl font-semibold text-white">Fill the form</h3>
         
                         <p class="text-gray-300">
                             Fill the given form, dont leave any input field for better movie suggestion</p>
@@ -116,7 +115,7 @@ Random Movie Picker - Get Random Movie Suggestions
                             </svg>
                         </span>
         
-                        <h1 class="text-2xl font-semibold text-white">Click on Submit</h1>
+                        <h3 class="text-2xl font-semibold text-white">Click on Submit</h3>
         
                         <p class="text-gray-300">
                             Once the form is completed, click on the button given below the form.</p>
@@ -129,7 +128,7 @@ Random Movie Picker - Get Random Movie Suggestions
                             </svg>
                         </span>
         
-                        <h1 class="text-2xl font-semibold text-white">Get the suggestion</h1>
+                        <h3 class="text-2xl font-semibold text-white">Get the suggestion</h3>
         
                         <p class="text-gray-300">
                             Suggestions will be displayed below the form</p>
@@ -143,8 +142,8 @@ Random Movie Picker - Get Random Movie Suggestions
             <div class="mx-auto max-w-7xl px-6 py-6 lg:py-8 lg:px-8 bg-[#1c1c1cd6] md:rounded-2xl border-y-2 border-x-0 border-solid md:border-2 border-white">
               <div class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-cyan-600">We Pick Movie For You</h2>
-                <p class="mt-2 text-3xl font-bold tracking-tight text-yellow-600 sm:text-4xl">Why to use ChooseMovieForMe<br> Recomemndation Sysytem</p>
-                <p class="mt-6 text-lg leading-8 text-slate-300">ChooseMovieForMe is a movie picker which helps its users to find movies best suited to thier choices.</p>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-yellow-500 sm:text-4xl">Why to use Random<br> Movie Picker?</p>
+                <p class="mt-6 text-lg leading-8 text-slate-300">If you want ot get surprised or dont know what to watch tonight, just click the button below the form and Random movie picker will take care of the rest.</p>
               </div>
               <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
                 <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
@@ -199,13 +198,14 @@ Random Movie Picker - Get Random Movie Suggestions
   
 
         <div class='w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] mb-10 rounded-2xl border-solid border-2 border-white'>
-            <div class="relative mb-3">
+            
+          <div class="relative mb-3">
               <h6 class="mb-0">
                 <button
                   class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
                   data-collapse-target="animated-collapse-1"
                 >
-                  <span class='text-yellow-500'>What is Random Movie suggestion?</span>
+                  <span class='text-yellow-500'>What is Random Movie Picker?</span>
                   <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
                 </button>
               </h6>
@@ -214,7 +214,84 @@ Random Movie Picker - Get Random Movie Suggestions
                 class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
               >
                 <div class="p-4 text-sm leading-normal text-slate-300">
-                    Random Movie suggestion is a feature of ChooseMovieForME that suggests random movies based on the user's preferences. The user can select the genre, language, service provider, and decade to get a random movie suggestion.
+                    Random Movie Picker is a feature of ChooseMovieForME that suggests random movies based on the user's preferences. If you dont know what to watch, we got you, you are at the right place to find a movie.
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-3">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-2"
+                >
+                  <span class='text-yellow-500'>how to pick random movie on netflix?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-2"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    There is a button below profile icon on initial loading screen. click that button, and netflix will play a movie based on your watching history.
+                </div>
+              </div>
+            </div>
+            <div class="relative mb-3 w-full">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-3"
+                >
+                  <span class='text-yellow-500'>Can I pick a random disney movie on ChooseMovieForMe?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-3"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    Yes, you can pick a random disney movie on ChooseMovieForMe. We have a wide range of disney movies collection.
+                </div>
+              </div>
+            </div>
+            <div class="relative mb-3 w-full">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-4"
+                >
+                  <span class='text-yellow-500'>Can I pick a random horror movie?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-4"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    Yes, you can pick a random horror movie on ChooseMovieForMe. We have a wide range of horror movies collection.
+                </div>
+              </div>
+            </div>
+            <div class="relative mb-3">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-5"
+                >
+                  <span class='text-yellow-500'>How to pick a random movie to watch?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-5"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    ChooseMovieForME is a movie picker which helps its users to find movies best suited to thier choices. You can pick a random movie to watch by filling the form given above.
                 </div>
               </div>
             </div>
