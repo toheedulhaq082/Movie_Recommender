@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'froala_editor',
+    'django.contrib.sitemaps',
 ]
 
 TAILWIND_APP_NAME = 'theme' 
