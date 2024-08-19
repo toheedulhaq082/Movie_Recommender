@@ -4,14 +4,23 @@ import pickle
 from .helper import get_random_year, get_first_10_elements, filter_empty_items, convert_genre_ids_to_names, recommend, create_tmdb_query
 import pip._vendor.requests as requests
 from dotenv import load_dotenv
+from django.views.generic import TemplateView, ListView
+from blog.models import BlogModel
 
 load_dotenv()
 
 TMDB_API_KEY = os.environ.get("TMDB_SECRET_KEY")
 
 # Create your views here.
-def suggestion(request):
-    return render(request, 'suggestion.html')
+# def suggestion(request):
+#     return render(request, 'suggestion.html')
+class HomePageView(ListView):
+    template_name = 'suggestion.html'
+    model = 'BlogModel'
+    context_object_name = 'all_posts_list'
+
+    def get_queryset(self):
+        return BlogModel.objects.all()
 
 def random(request):
     context = {}
