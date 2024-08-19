@@ -9,6 +9,4 @@ def generate_random_string(N):
 def generate_slug(text):
     from .models import BlogModel
     new_slug = slugify(text)
-    if BlogModel.objects.filter(slug=new_slug).exists():
-        return generate_slug(text + generate_random_string(5))
-    return new_slug
+    return new_slug 
