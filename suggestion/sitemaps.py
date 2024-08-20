@@ -4,6 +4,7 @@ from django.urls import reverse
 class StaticSiteMap(Sitemap):
     changefreq = 'weekly'
     priority = 0.9
+    protocol = 'https'
 
     def items(self):
         return ['home', 'random', 'similar', 'mood']

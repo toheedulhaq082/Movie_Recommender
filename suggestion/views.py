@@ -14,13 +14,13 @@ TMDB_API_KEY = os.environ.get("TMDB_SECRET_KEY")
 # Create your views here.
 # def suggestion(request):
 #     return render(request, 'suggestion.html')
-class HomePageView(ListView):
+class HomePageView(ListView): 
     template_name = 'suggestion.html'
-    model = 'BlogModel'
+    model = BlogModel
     context_object_name = 'all_posts_list'
 
     def get_queryset(self):
-        return BlogModel.objects.all()
+        return BlogModel.objects.all().order_by('-created_at')[:5]
 
 def random(request):
     context = {}
