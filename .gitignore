@@ -1,4 +1,4 @@
-__pycache__/
+__pycache__
 
 .pyc
 *.pyc
@@ -7,3 +7,8 @@ __pycache__/
 */*.pyo
 
 .env
+
+db.sqlite3
+
+suggestion/__pycache__/urls.cpython-312.pyc
+suggestion/__pycache__/views.cpython-312.pyc

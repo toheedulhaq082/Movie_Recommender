@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Similar Movie Picker - Get Similar Movie Suggestions
+Similar Movie Picker
 {% endblock %}
 
 {% block content %}
@@ -169,7 +169,7 @@ Similar Movie Picker - Get Similar Movie Suggestions
         </div>
 
         <div class='w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] mb-10 rounded-2xl border-solid border-2 border-white'>
-          <div class="relative mb-3">
+          <div class="relative mb-3 w-full">
             <h6 class="mb-0">
               <button
                 class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
@@ -189,6 +189,141 @@ Similar Movie Picker - Get Similar Movie Suggestions
             </div>
           </div>
 
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-2"
+              >
+                <span class='text-yellow-500'>How many movies i can get similar movies?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-2"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                We have around 5000 movies in our database, so you can get similar movies for all of them. Dataset will be increased in future.
+              </div>
+            </div>
+          </div>
+
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-3"
+              >
+                <span class='text-yellow-500'>Can i get similar movie suggestions for Telugu Movies?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-3"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                Yes, you can get similar movie recommendation for Telugu Movies. Similar Movie Picker suggests English movies, Hindi movies, Tamil movies, and Telugu movies.
+              </div>
+            </div>
+          </div>
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-4"
+              >
+                <span class='text-yellow-500'>How many genre are supported by Similar movie picker?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-4"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                Similar Movie Picker supports all genres like Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History, Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller, War, Western.
+              </div>
+            </div>
+          </div>
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-5"
+              >
+                <span class='text-yellow-500'>Do I need to create an account to use the service?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-5"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                No, you do not need to create an account to use Similar Movie Picker. Simply select a movie, and we’ll provide the recommendations.
+              </div>
+            </div>
+          </div>
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-6"
+              >
+                <span class='text-yellow-500'>Is Similar Movie Picker free to use?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-6"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                Yes, Similar Movie Picker is free to use for all visitors.
+              </div>
+            </div>
+          </div>
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-7"
+              >
+                <span class='text-yellow-500'>Can I search for similar movies by genre or year?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-7"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                You can get tailored recommendations from our <span class='font-semibold'><a href='{% url "mood" %}'>Mood Based Movie Recommender</a></span>. Just select year and genre, and we’ll provide the recommendations.
+              </div>
+            </div>
+          </div>
+          <div class="relative mb-3 w-full">
+            <h6 class="mb-0">
+              <button
+                class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                data-collapse-target="animated-collapse-8"
+              >
+                <span class='text-yellow-500'>How many suggestions can i get per day?</span>
+                <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+              </button>
+            </h6>
+            <div
+              data-collapse="animated-collapse-8"
+              class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="p-4 text-sm leading-normal text-slate-300">
+                MovieChooseForMe does not have any limit on the number of suggestions you can get per day. You can get as many suggestions as you want. 
+              </div>
+            </div>
+          </div>
+          
 
      </div>
 
