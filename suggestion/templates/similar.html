@@ -1,5 +1,10 @@
 {% extends "layout.html" %}
 
+{% block meta %}
+<meta name="description" content="Our Similar Movie Picker suggests films based on your preferred movie. Get recommendations on one click">
+<meta name="keywords" content="choose a movie for me, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, similar movies, best similar movies, movie picker, best similar movies, movie picker app, date night movie picker, random movie, couple movie picker, random movie picker, movie date picker, movie picker for couples, similar movie generator, random movie suggestions, similar movie finder, disney movie picker, pick a random movie">
+{% endblock %}
+
 {% block title %}
 Similar Movie Picker
 {% endblock %}
@@ -108,6 +113,37 @@ Similar Movie Picker
               </div>
           </div>
       </section>
+
+
+      <section class="w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] my-10 rounded-2xl border-solid border-2 border-white">
+        <div class="container px-6 py-10 mx-auto">
+            <h2 class="text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Best Similar Movies</h2>
+            
+            <p class="mt-2 text-gray-300 xl:mt-4 dark:text-gray-300">
+              ChooseMovieForME has a wide range of similar movies to suggest. These movies are picked based on your prefered movie. We have around 5000 movies in our database, so you can get similar movies for all of them. Dataset will be increased in future.
+            </p>
+    
+            <h2 class="text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Content Based Movie Picker</h2>
+            <p class="mt-2 text-gray-300 xl:mt-4 dark:text-gray-300">
+              Similar Movie Picker is a content based movie picker which helps its users to find movies best suited to thier choices. We suggest movies based on your prefered movie.
+    
+            </p>
+            <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Five Closest Similar Movie Suggestion</h2>
+            <p class="mt-1 text-gray-300 dark:text-gray-300">
+              Our Similar Movie Picker suggests five closest similar movies based on your prefered movie. These movies are picked based on the genre, ratings, theme, tags, cast, and popularity of the movie.
+    
+            </p>
+            <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Unlimited Recommendations</h2>
+            <p class="mt-1 text-gray-300 dark:text-gray-300">
+              MovieChooseForMe does not have any limit on the number of suggestions you can get per day. You can get as many suggestions as you want.
+              
+            </p>
+            <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Upcoming: 170,000 Movies</h2>
+            <p class="mt-1 text-gray-300 dark:text-gray-300">
+              We are working on increasing our dataset to 170,000 movies. You will get suggestions for all the movies in our database.
+            </p>
+        </div>
+    </section>
       
       
       <div class=" py-24 sm:py-32">

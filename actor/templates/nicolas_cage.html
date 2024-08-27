@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block meta %}
+<meta name="description" content="Discover the top 20 must-watch Nicolas Cage films. From action-packed thrillers to heartwarming dramas, find your favorite Cage movies and explore his iconic performances.">
+<meta name="keywords" content="Nicolas Cage movies, best movies of nicolas cage, choose a movie for me, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, similar movies, best similar movies, movie picker, best similar movies, movie picker app, date night movie picker, random movie, couple movie picker, random movie picker, movie date picker, movie picker for couples, similar movie generator, random movie suggestions, similar movie finder, disney movie picker, pick a random movie">
+{% endblock %}
+
+{% block title %}What Movies To Watch If You Are Nicolas Cage Fan?{% endblock %}
+
+{% block content %}
+
+<div class="flex justify-center">
+<div class="bg-gray-900 max-w-full rounded-md shadow-lg text-white my-8">
+    <div class="px-4 leading-none max-w-4xl">
+
+        <div class="text-gray-300">
+           
+        <h1 class="pt-4 text-2xl font-bold">The Best 20 Nicolas Cage Movies To Watch</h1>
+        <hr class="hr-text" data-content="">
+        <div class="text-md flex justify-between px-4 my-2">
+            <span class="font-bold hidden md:block">Popular Movies</span>
+            <span class="font-bold"></span>
+        </div>
+        <p class="hidden md:block px-4 my-4 text-base text-left">Nicolas Cage, born Nicolas Kim Coppola, is an American actor renowned for his eccentric performances and versatile roles. Known for his intense, often over-the-top acting style, Cage has cemented his place as a cult icon in Hollywood.</p>
+                 
+        <div class="text-xs">
+        
+           <a href='https://www.imdb.com/name/nm0000115/'> <button type="button" class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 mb-4 transition duration-500 ease select-none hover:bg-gray-900 focus:outline-none focus:shadow-outline">IMDB</button></a>
+        </div>
+                       
+        </div>
+
+    </div>
+</div>
+</div>
+
+    <div class='flex justify-center items-center flex-wrap w-auto'>
+        {% for movie in movies %}
+        <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-30 md:w-60 mx-5 my-10">
+           <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl md:h-30 bg-cover">
+             <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"  alt={{movie.title}} />
+           </div>
+           <div class="px-5 py-2 md:p-6 flex-col gap-2">
+             <h4 class="block mb-2 font-sans text-lg antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 flex-grow">
+               {{ movie.title }}
+             </h4>
+             <p
+               class="block font-sans text-sm antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+               Rating: {{ movie.average_vote }}
+             </p>
+           </div>
+         </div>
+           {% endfor %}
+           </div>
+
+           <section class="w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] my-10 rounded-2xl border-solid border-2 border-white">
+            <div class="container px-6 py-10 mx-auto">
+                <h2 class="text-xl font-semibold capitalize lg:text-2xl text-yellow-500">What movie should I watch?</h2>
+                
+                <p class="mt-2 text-gray-300 xl:mt-4 dark:text-gray-300">
+                  If you are fan of Nicolas Cage, you should definitely watch the following movies. These are the top 20 popular Nicolas Cage movies that you should not miss.
+                </p>
+
+                <h2 class="text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Best curated list of Nicolas Cage movies</h2>
+                <p class="mt-2 text-gray-300 xl:mt-4 dark:text-gray-300">
+                  ChooseMovieForME has curated a list of the best Nicolas Cage movies that you should watch. These movies are picked across all genres and are the best of Nicolas Cage.
+
+                </p>
+                <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Best Movie Recommendations</h2>
+                <p class="mt-1 text-gray-300 dark:text-gray-300">
+                  ChooseMovieForME provides the best movie recommendations for Nicolas Cage movies. These movies are picked based on the popularity and ratings of Nicolas Cage movies.
+
+                </p>
+                <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Where to watch Nicolas Cage Movies?</h2>
+                <p class="mt-1 text-gray-300 dark:text-gray-300">
+                  Nicolas Cage movies can be found on various streaming platforms, including Netflix, Hulu, Amazon Prime Video, HBO Max, Disney+, Criterion Channel, YouTube, and iTunes. Availability may vary by region, so it's recommended to check the specific platforms in your area to find the movies you're looking for.
+
+                </p>
+                <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Couldn't find Nicolas Cage Movies of your choce?</h2>
+                <p class="mt-1 text-gray-300 dark:text-gray-300">
+                  Visit ChooseMovieForME to find more Nicolas Cage movies of your choice. ChooseMovieForME has a vast collection of movies that you can explore and watch. You can also find movies from other genres and actors on ChooseMovieForME.
+                </p>
+                
+                
+            </div>
+        </section>
+
+{% endblock %}

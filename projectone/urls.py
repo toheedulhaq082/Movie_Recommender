@@ -34,7 +34,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('suggestion.urls')),
     path('blog/', include('blog.urls')),
-    path('froala_editor/',include('froala_editor.urls'))
+    path('froala_editor/',include('froala_editor.urls')),
+    path('actor/', include('actor.urls')),
 ]
 
 if settings.DEBUG:
