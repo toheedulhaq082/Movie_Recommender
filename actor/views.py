@@ -6,12 +6,12 @@ import requests
 
 load_dotenv()
 
-TMDB_SECRET_KEY = os.environ.get("TMDB_SECRET_KEY")
+TMDB_API_KEY = os.environ.get("TMDB_SECRET_KEY")
 
 # Create your views here.
 def nicolas_cage(request):
     actor_id = 2963
-    api_url = f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_SECRET_KEY}&with_people={actor_id}&sort_by=popularity.desc&page=1"
+    api_url = f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_people={actor_id}&sort_by=popularity.desc&page=1"
 
     try:
         response = requests.get(api_url)
@@ -27,7 +27,7 @@ def nicolas_cage(request):
             }
             for movie in movies
         ]
-
+ 
         return render(request, 'nicolas_cage.html', {'movies': processed_movies})
     except requests.exceptions.RequestException as e:
         
