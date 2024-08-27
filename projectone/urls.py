@@ -23,10 +23,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import BlogSitemap
 from suggestion.sitemaps import StaticSiteMap
+from actor.sitemaps import ActorSiteMap
 
 sitemaps = {
     'blogpages': BlogSitemap,
     'static': StaticSiteMap,
+    'actor': ActorSiteMap,
 }
 
 urlpatterns = [
