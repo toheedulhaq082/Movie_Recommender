@@ -10,3 +10,4 @@ def generate_slug(text):
     from .models import BlogModel
     new_slug = slugify(text)
     return new_slug 
+

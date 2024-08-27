@@ -16,8 +16,9 @@ class BlogModel(models.Model):
         return self.title
     
     def save(self, *args, **kwargs):
-        from .helpers import generate_slug
-        self.slug = generate_slug(self.title)
+        if not self.slug:
+            from .helpers import generate_slug
+            self.slug = generate_slug(self.title)
         super(BlogModel, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
