@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block meta %}
-<meta name="description" content="{{ blog_obj.content | truncatechars:150 }}">
+<meta name="description" content="{{ blog_obj.content | striptags | truncatechars:150 }}">
 <meta name="keywords" content="{{blog_obj.title}}, choose a movie for me, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, similar movies, best similar movies, movie picker, best similar movies, movie picker app, date night movie picker, random movie, couple movie picker, random movie picker, movie date picker, movie picker for couples, similar movie generator, random movie suggestions, similar movie finder, disney movie picker, pick a random movie">
 {% endblock %}
 
