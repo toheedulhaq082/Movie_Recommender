@@ -152,28 +152,6 @@
     </footer>
 </body>
 
-<script>
-	// Get the dropdown button and the dropdown menu elements
-const dropdownHoverButton = document.getElementById('dropdownHoverButton');
-const dropdownMenu = document.getElementById('dropdownHover');
-
-// Function to show the dropdown menu
-const showDropdown = () => {
-    dropdownMenu.classList.remove('hidden');
-};
-
-// Function to hide the dropdown menu
-const hideDropdown = () => {
-    dropdownMenu.classList.add('hidden');
-};
-
-// Add event listeners to show/hide the dropdown menu on hover
-dropdownHoverButton.addEventListener('mouseenter', showDropdown);
-dropdownHoverButton.addEventListener('mouseleave', hideDropdown);
-dropdownMenu.addEventListener('mouseenter', showDropdown);
-dropdownMenu.addEventListener('mouseleave', hideDropdown);
-
-</script> 
 <!-- from cdn -->
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
