@@ -78,3 +78,9 @@ def mood(request):
     except:
         pass
     return render(request, 'mood.html')
+
+def netflix(request):
+    return render(request, 'netflix.html')
+
+def disney(request):
+    return render(request, 'disney.html')

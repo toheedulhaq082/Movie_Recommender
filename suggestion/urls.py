@@ -12,6 +12,8 @@ urlpatterns = [
     path('random/', views.random, name='random'),
     path('similar/', views.similar, name='similar'),
     path('mood/', views.mood, name='mood'),
+    path('netflix', views.netflix, name='netflix'),
+    path('disney', views.disney, name='disney'),
 ]
 
 if settings.DEBUG:
