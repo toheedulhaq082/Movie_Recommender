@@ -84,3 +84,15 @@ def netflix(request):
 
 def disney(request):
     return render(request, 'disney.html')
+
+def marvel(request):
+    return render(request, 'marvel.html')
+
+def prime(request):
+    return render(request, 'prime.html')
+
+def pixar(request):
+    return render(request, 'pixar.html')
+
+def christmas(request):
+    return render(request, 'christmas.html')

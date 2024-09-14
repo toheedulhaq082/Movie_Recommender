@@ -1,0 +1,351 @@
+{% extends "layout.html" %}
+
+{% block meta %}
+<meta name="description" content="Get Random Movie Suggestions for Marvel for free.">
+<meta name="keywords" content="Marvel random movie generator, Marvel random movie picker, choose a movie for me, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, movie for me, movie suggestions, movie recommendations, pick a movie, recommend me a movie, what movie to watch, suggest me a movie, movie suggestion website, movie recommendation website, movieforme, similar movies, best similar movies, movie picker, best similar movies, movie picker app, date night movie picker, random movie, couple movie picker, random movie picker, movie date picker, movie picker for couples, similar movie generator, random movie suggestions, similar movie finder, disney movie picker, pick a random movie">
+{% endblock %}
+
+{% block title %}Random Marvel Movie Generator{% endblock %}
+
+{% block content %}
+
+    <div class='font-sans flex items-center flex-col'>
+        <div class="max-w-full my-10 bg-[#1c1c1cd6] md:rounded-2xl border-solid border-y-2 md:border-2 border-white overflow-hidden">
+            <div class="text-2xl w-full py-4 px-6 text-yellow-500 text-center font-bold uppercase">
+                    <h1>Random Marvel Movie Generator</h1>
+                </div>
+                <form class="py-4 px-6" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-4">
+                        <label class="block text-yellow-500 font-bold mb-2" for="decade">
+                            Decade
+                        </label>
+                        <select
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="decade" name="decade" required>
+                            <option value="">Select a Decade</option>
+                            <option value="1990">1990-2000</option>
+                            <option value="2000">2000-2010</option>
+                            <option value="2010">2010-2020</option>
+                            <option value="2020">2020 onwards</option>
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="flex items-center justify-center mb-4">
+                        <button
+                            class="cursor-pointer mt-3 border-2 border-gray-300 shadow-sm rounded-full py-3.5 px-7 w-52 flex justify-center items-center bg-[#1c1c1cd6] text-yellow-500 font-semibold mx-auto transition-all duration-300 hover:text-black hover:bg-gray-100"
+                            type="submit">
+                            Suggest
+                        </button>
+                    </div>
+            
+                </form>
+            </div>
+    </div>
+
+    <div class='flex items-center justify-center'>
+        <div id="alert-border-1" class="flex items-center md:w-1/2 p-4 mb-4 text-blue-800 border-t-4 border-blue-300 bg-blue-50 dark:text-blue-400 dark:bg-gray-800 dark:border-blue-800" role="alert">
+            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <div class="ms-3 text-sm font-medium">
+              If you want to get Christmas Movie Recommendations, click <a href='{% url "christmas" %}' class="font-semibold underline hover:no-underline">here</a>.
+            </div>
+            <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-border-1" aria-label="Close">
+              <span class="sr-only">Dismiss</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+            </button>
+        </div></div>
+
+    <div class="min-h-screen grid place-items-center font-mono">
+        {% comment %} {% for d in data %}
+        <div class="bg-gray-900 max-w-2/3 rounded-md shadow-lg text-white my-8">
+            <div class="md:flex px-4 leading-none max-w-4xl">
+    
+                <div class="flex-none ">
+                    <img
+                 src="https://image.tmdb.org/t/p/w500{{ d.poster_path }}"
+                 alt="pic"
+                 class="h-72 w-56 rounded-md transform -translate-y-4 border-4 border-gray-300 shadow-lg"
+                   />           
+                </div>
+  
+                <div class="flex-col text-gray-300">
+                   
+                <p class="pt-4 text-2xl font-bold">{{d.original_title}}</p>
+                <hr class="hr-text" data-content="">
+                <div class="text-md flex justify-between px-4 my-2">
+                    <span class="font-bold">{{d.genre_names}}</span>
+                    <span class="font-bold"></span>
+                </div>
+                <p class="hidden md:block px-4 my-4 text-sm text-left">{{d.overview}}</p>
+                
+                <p class="flex text-md px-4 my-2">
+                  Rating: {{d.vote_average}}/10 
+                  <span class="font-bold px-2">|</span>
+                  Mood: Dark
+                </p>
+                         
+                <div class="text-xs">
+                    <button type="button" class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-900 focus:outline-none focus:shadow-outline">TRAILER</button>
+                
+                    <button type="button" class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-900 focus:outline-none focus:shadow-outline">IMDB</button>
+                
+                    <button type="button" class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-900 focus:outline-none focus:shadow-outline">AMAZON</button>
+                </div>
+                               
+                </div>
+    
+            </div>
+        </div>
+        {% endfor %} {% endcomment %}
+
+        <section class="font-sans md:w-3/4 w-full flex flex-col items-center mx-auto bg-[#1c1c1cd6] my-10 md:rounded-2xl border-solid border-y-2 md:border-2 border-white">
+            <div class="container px-6 py-10 mx-auto">
+                <h2 class="text-3xl text-center font-semibold capitalize lg:text-4xl text-yellow-500">How to use Random Movie<br>Generator?</h2>
+                
+                <p class="mt-4 text-gray-300 xl:mt-6 dark:text-gray-300">
+    Marvel Random Movie Generator is a movie recommendation engine which suggests random but popular movies.
+                </p>
+                
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 space-y-3 border-2 border-white rounded-xl">
+                        <span class="inline-block text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                            </svg>
+                        </span>
+        
+                        <h3 class="text-2xl font-semibold text-white">Fill the form</h3>
+        
+                        <p class="text-gray-300">
+                            Fill the given form, dont leave any input field for better movie suggestion</p>
+                    </div>
+        
+                    <div class="p-8 space-y-3 border-2 border-white rounded-xl">
+                        <span class="inline-block text-teal-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                            </svg>
+                        </span>
+        
+                        <h3 class="text-2xl font-semibold text-white">Click on Submit</h3>
+        
+                        <p class="text-gray-300">
+                            Once the form is completed, click on the button given below the form.</p>
+                    </div>
+        
+                    <div class="p-8 space-y-3 border-2 border-white rounded-xl">
+                        <span class="inline-block text-purple-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                        </span>
+        
+                        <h3 class="text-2xl font-semibold text-white">Get the Marvel movie suggestion</h3>
+        
+                        <p class="text-gray-300">
+                            Marvel movie suggestions will be displayed below the form</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="font-sans flex flex-col items-center mx-auto bg-[#1c1c1cd6] w-full md:w-3/4 md:rounded-2xl border-solid border-y-2 md:border-2 border-white">
+          <div class="container px-6 py-10 mx-auto">
+              <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Dont know what Movie to watch on Marvel tonight?</h2>
+              
+              <p class="mt-1 text-gray-300 dark:text-gray-300">
+                If you are confused about what movie to watch on Marvel, you are at the right place. Our Marvel Random Movie Generator will help you to find the best movie for you.
+              </p>
+      
+              <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random but Popular Movies</h2>
+              <p class="mt-1 text-gray-300 dark:text-gray-300">
+                Our Marvel Random Movie Generator suggests random but popular movies across all genres. You will get the best movie suggestions based on your preferred decade.
+      
+              </p>
+              <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Fun to use</h2>
+              <p class="mt-1 text-gray-300 dark:text-gray-300">
+                Marvel Random Movie Generator is fun to use. You will get surprised by the suggestions you get. You can also watch the trailer of the suggested movies.
+      
+              </p>
+              <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Unlimited Recommendations</h2>
+              <p class="mt-1 text-gray-300 dark:text-gray-300">
+                MovieChooseForMe does not have any limit on the number of suggestions you can get per day. You can get as many suggestions as you want.
+                
+              </p>
+          </div>
+      </section>
+        
+        
+        <div class="font-sans py-24 sm:py-32">
+            <div class="mx-auto md:w-3/4 max-w-7xl px-6 py-6 lg:py-8 lg:px-8 bg-[#1c1c1cd6] md:rounded-2xl border-y-2 border-x-0 border-solid md:border-2 border-white">
+              <div class="mx-auto max-w-2xl lg:text-center">
+                <h2 class="text-base font-semibold leading-7 text-cyan-600">We Pick Movie For You</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-yellow-500 sm:text-4xl">Why to use Marvel Random<br> Movie Generator?</p>
+                <p class="mt-6 text-lg leading-8 text-slate-300">If you want to get surprised or dont know what to watch tonight, just click the button below the form and Marvel Random Movie Generator will take care of the rest.</p>
+              </div>
+              <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                  <div class="relative pl-16">
+                    <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                      <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600">
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                        </svg>
+                      </div>
+                      Time-saving & Easy to use
+                    </dt>
+                    <dd class="mt-2 text-base leading-7 text-slate-300">ChooseMovieForMe: Where a few clicks lead you to the perfect movie, fast and fuss-free!</dd>
+                  </div>
+                  <div class="relative pl-16">
+                    <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                      <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-600">
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                      </div>
+                      Free & no registration
+                    </dt>
+                    <dd class="mt-2 text-base leading-7 text-slate-300">Dive into ChooseMovieForMe's sea of cinema with zero fees and no sign-up needed!</dd>
+                  </div>
+                  <div class="relative pl-16">
+                    <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                      <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
+                      </div>
+                      Special recommendations for movie dates
+                    </dt>
+                    <dd class="mt-2 text-base leading-7 text-slate-300">ChooseMovieForMe: Spark romance with our handpicked flicks for your perfect movie date!</dd>
+                  </div>
+                  <div class="relative pl-16">
+                    <dt class="text-lg font-semibold leading-7 text-yellow-500">
+                      <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600">
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                        </svg>
+                      </div>
+                      Only high-quality movies
+                    </dt>
+                    <dd class="mt-2 text-base leading-7 text-slate-300">Quality is our script — ChooseMovieForME brings only the finest films to your screen!</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+  
+
+        <div class='font-sans w-3/4 flex flex-col items-center mx-auto bg-[#1c1c1cd6] mb-10 rounded-2xl border-solid border-2 border-white'>
+            <div class="mx-auto max-w-2xl text-center">
+                <h2 class="font-manrope text-4xl font-bold text-yellow-500 text-center my-5">FAQ</h2>
+              </div>
+          <div class="relative mb-3 w-full">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-1"
+                >
+                  <span class='text-yellow-500'>What is Marvel Random Movie Generator?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-1"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    Marvel Random Movie Generator is a feature of ChooseMovieForME that suggests random movies based on the user's preferred genre. If you dont know what to watch, we got you, you are at the right place to find a movie.
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-3 w-full">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-2"
+                >
+                  <span class='text-yellow-500'>How to pick random movie on Marvel?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-2"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    There is a button below profile icon on initial loading screen. click that button, and Marvel will play a movie based on your watching history.
+                </div>
+              </div>
+            </div>
+            <div class="relative mb-3 w-full">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-3"
+                >
+                  <span class='text-yellow-500'>Can I pick a random disney movie on ChooseMovieForMe?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-3"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    Yes, you can pick a random disney movie on ChooseMovieForMe. We have a wide range of disney movies collection.
+                </div>
+              </div>
+            </div>
+            <div class="relative mb-3 w-full">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-4"
+                >
+                  <span class='text-yellow-500'>Can I pick a random horror movie?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-4"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    Yes, you can pick a random horror movie on ChooseMovieForMe. We have a wide range of horror movies collection.
+                </div>
+              </div>
+            </div>
+            <div class="relative mb-3 w-full">
+              <h6 class="mb-0">
+                <button
+                  class="relative flex items-center w-full p-4 font-semibold md:text-lg text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+                  data-collapse-target="animated-collapse-5"
+                >
+                  <span class='text-yellow-500'>How to pick a random movie to watch?</span>
+                  <i class="absolute right-0 pt-1 text-base transition-transform fa fa-chevron-down group-open:rotate-180"></i>
+                </button>
+              </h6>
+              <div
+                data-collapse="animated-collapse-5"
+                class="h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <div class="p-4 text-sm leading-normal text-slate-300">
+                    ChooseMovieForME is a movie Generator which helps its users to find movies best suited to thier choices. You can pick a random movie to watch by filling the form given above.
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+    </div>
+
+{% endblock %}

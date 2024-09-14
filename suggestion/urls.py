@@ -7,13 +7,17 @@ from blog.models import BlogModel
 from .views import HomePageView
 
 urlpatterns = [
-    # path('', views.suggestion, name='home'),
     path('', HomePageView.as_view(), name='home'),
     path('random/', views.random, name='random'),
     path('similar/', views.similar, name='similar'),
     path('mood/', views.mood, name='mood'),
     path('netflix', views.netflix, name='netflix'),
     path('disney', views.disney, name='disney'),
+    # path('hulu', views.hulu, name='hulu'),
+    path('marvel', views.marvel, name='marvel'),
+    path('amazon-prime', views.prime, name='prime'),
+    path('pixar', views.pixar, name='pixar'),
+    path('christmas', views.christmas, name='christmas'),
 ]
 
 if settings.DEBUG:

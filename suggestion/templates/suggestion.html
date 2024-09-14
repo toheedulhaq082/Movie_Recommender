@@ -15,27 +15,34 @@ Get The Best Movie Recommendations Of Your Choice
       </div>
 
        
-        <div class="mt-3 md:my-6 h-40 flex items-center justify-center flex-wrap gap-4">
-          <a class='flex md:w-1/3 md:h-1/3 w-1/3 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-yellow-600 text-white' href='{% url "similar" %}'>
-            <div class = 'w-full font-medium text-center text-sm md:text-base md:font-medium'>
-              Similar
-            </div></a>
-            <a class='flex md:w-1/3 md:h-1/3 w-1/3 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-fuchsia-600 text-white' href='{% url "netflix" %}'>
-              <div class = 'w-full font-medium text-center text-sm md:text-base md:font-medium'>
+        <div class="mt-3 md:my-6 h-49 flex items-center justify-center flex-wrap gap-4">
+
+          <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "similar" %}'>
+              Similar</a>
+            <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "netflix" %}'>
                 Netflix
-              </div></a>
-              <a class='flex md:w-1/3 md:h-1/3 w-1/3 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-purple-600 text-white' href='{% url "disney" %}'>
-                <div class = 'w-full font-medium text-center text-sm md:text-base md:font-medium'>
+              </a>
+              <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "disney" %}'>
                   Disney Plus
-                </div></a>
-          <a class='flex md:w-1/3 md:h-1/3 w-1/3 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-cyan-600 text-white' href='{% url "random" %}'>
-          <div class = 'w-full font-medium text-center text-sm md:text-base md:font-medium'>
-            Random
-          </div></a>
-          <a class='flex md:w-1/3 md:h-1/3 w-1/3 h-1/4 justify-center items-center border-solid border-2 md:border-4 rounded-md bg-teal-600 text-white' href='{% url "mood" %}'>
-            <div class = 'w-full font-medium text-center text-sm md:text-base md:font-medium'>
-              Advanced
-            </div></a>
+                </a>
+                <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "pixar" %}'>
+                Pixar
+                  </a>
+                  <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "marvel" %}'>
+                    Marvel
+                    </a>
+                    <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "christmas" %}'>
+                      Christmas
+                      </a>
+                      <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "prime" %}'>
+                        Prime
+                        </a>
+          <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "random" %}'>
+          Random
+          </a>
+          <a class='md:px-4 font-medium text-center text-sm md:text-lg md:font-medium text-white underline hover:no-underline' href='{% url "mood" %}'>
+            Advanced
+          </a>
               
         </div>
         
@@ -95,17 +102,33 @@ Get The Best Movie Recommendations Of Your Choice
           If you have watched a movie and you liked it so much. Now you want to watch a movie similar to it, we have got you covered. Our recommended movie will be similar to your watched movie.
 
         </p>
-        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Movie Picker</h2>
+        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Movie Generator</h2>
         <p class="mt-1 text-gray-300 dark:text-gray-300">
-          If you have no idea what are you looking for, let us help you with our random movie suggestions. We suggest random but hihgly popular movies.
+          If you have no idea what are you looking for, let us help you with our random movie suggestions. We suggest random but highly popular movies.
         </p>
-        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Netflix Random Movie Picker</h2>
+        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Netflix Movie Generator</h2>
         <p class="mt-1 text-gray-300 dark:text-gray-300">
-          If you want to watch a movie on Netflix, but you are confused about what to watch. Let us help you with our Netflix Random Movie Picker. We suggest random but hihgly popular movies available on Netflix.
+          If you want to watch a movie on Netflix, but you are confused about what to watch. Let us help you with our Netflix Random Movie Picker. We suggest random but highly popular movies available on Netflix.
         </p>
-        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Disney Plus Random Movie Picker</h2>
+        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Disney Plus Movie Generator</h2>
         <p class="mt-1 text-gray-300 dark:text-gray-300">
-          If you want to watch a movie on Disney Plus, but you are confused about what to watch. Let us help you with our Disney Plus Random Movie Picker. We suggest random but hihgly popular movies available on Disney Plus.
+          If you want to watch a movie on Disney Plus, but you are confused about what to watch. Let us help you with our Disney Plus Random Movie Picker. We suggest random but highly popular movies available on Disney Plus.
+        </p>
+        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Marvel Movie Generator</h2>
+        <p class="mt-1 text-gray-300 dark:text-gray-300">
+         If you are a Marvel fan and you want to watch a movie, but you are confused about what to watch. Let us help you with our Marvel Random Movie Picker. We suggest random but highly popular Marvel movies.
+        </p>
+        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Christmas Movie Generator</h2>
+        <p class="mt-1 text-gray-300 dark:text-gray-300">
+          On this Christmas eve, dont need to worry about what to watch. Let us help you with our Christmas Random Movie Picker. We suggest random but highly popular Christmas movies.
+        </p>
+        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Pixar Movie Generator</h2>
+        <p class="mt-1 text-gray-300 dark:text-gray-300">
+           If you are looking for Kids movies, Pixar movies are the best choice. They produce best animated movies suitable for kids and families to watch. Let us help you with our Pixar Random Movie Picker. We suggest random but highly popular Pixar movies.
+        </p>
+        <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Random Amazon Prime Movie Generator</h2>
+        <p class="mt-1 text-gray-300 dark:text-gray-300">
+          If you want to watch a movie on Amazon Prime, but you are confused about what to watch. Let us help you with our Amazon Prime Random Movie Picker. We suggest random but highly popular movies available on Amazon Prime.
         </p>
         <h2 class="mt-4 text-xl font-semibold capitalize lg:text-2xl text-yellow-500">Curated Movie Recommendations</h2>
         <p class="mt-1 text-gray-300 dark:text-gray-300">
