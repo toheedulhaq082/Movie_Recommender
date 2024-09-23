@@ -1,7 +1,8 @@
 from django.shortcuts import render
+import pandas as pd
 import os
 import pickle
-from .helper import get_random_year, get_first_10_elements, filter_empty_items, convert_genre_ids_to_names, recommend, create_tmdb_query
+from .helper import get_random_year, get_first_10_elements, filter_empty_items, convert_genre_ids_to_names, recommend, create_tmdb_query, fetch_movie_data, get_random_year_for_disney
 import pip._vendor.requests as requests
 from dotenv import load_dotenv
 from django.views.generic import TemplateView, ListView
@@ -79,11 +80,24 @@ def mood(request):
         pass
     return render(request, 'mood.html')
 
-def netflix(request):
-    return render(request, 'netflix.html')
 
 def disney(request):
+    disney_movies = pd.read_csv('./model/disney_plus_titles.csv')
+    
+    
+    if request.method == 'POST':
+        year = get_random_year_for_disney(int(request.POST['decade']))
+        
+        disney_movies = disney_movies[disney_movies['release_year'] == year]
+        random_movies = fetch_movie_data(disney_movies['title'].sample(n=10).tolist())
+        random_movies = random_movies[:10]
+        
+        return render(request, 'disney.html', {'movies': random_movies})
+    
     return render(request, 'disney.html')
+
+def netflix(request):
+    return render(request, 'netflix.html')
 
 def marvel(request):
     return render(request, 'marvel.html')

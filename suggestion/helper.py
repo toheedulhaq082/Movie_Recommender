@@ -13,9 +13,42 @@ movies = pickle.load(open('./model/movies.pkl', 'rb'))
 TMDB_SECRET_KEY = os.environ.get("TMDB_SECRET_KEY")
 
 
+def fetch_movie_data(movies):
+    TMDB_BASE_URL = 'https://api.themoviedb.org/3'
+    movie_data = []
+    
+    for movie in movies:
+        search_url = f"{TMDB_BASE_URL}/search/movie?api_key={TMDB_SECRET_KEY}&query={movie}"
+        response = requests.get(search_url)
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data['results']:
+                for result in data['results']:
+                    poster_url = f"https://image.tmdb.org/t/p/w500{result['poster_path']}" if result['poster_path'] else None
+                    
+                    # Append only if poster is not None
+                    if poster_url:
+                        movie_info = {
+                            'title': result['title'],
+                            'poster': poster_url,
+                            'vote_average': result['vote_average'],
+                        }
+                        movie_data.append(movie_info)
+            else:
+                print(f"No results found for {movie}.")
+        else:
+            print(f"Error fetching data for {movie}: {response.status_code}")
+    
+    return movie_data
 
 
 def get_random_year(start_year, current_year=2024):
+
+    end_year = min(start_year + 10, current_year)
+    return random.randint(start_year, end_year)
+
+def get_random_year_for_disney(start_year, current_year=2021):
 
     end_year = min(start_year + 10, current_year)
     return random.randint(start_year, end_year)
