@@ -97,9 +97,31 @@ def disney(request):
     return render(request, 'disney.html')
 
 def netflix(request):
+    netflix_movies = pd.read_csv('./model/netflix.csv')
+
+    if request.method == 'POST':
+        genre = request.POST['genre']
+        
+        filtered_movies = netflix_movies[netflix_movies['genres'].str.contains(genre, case=False, na=False)]
+        random_movies = fetch_movie_data(filtered_movies['title'].sample(n=min(10, len(filtered_movies))).tolist())
+        random_movies = random_movies[:10]
+        
+        return render(request, 'netflix.html', {'movies': random_movies})
+    
     return render(request, 'netflix.html')
 
 def marvel(request):
+    marvel_movies = pd.read_csv('./model/mcu_box_office.csv')
+    
+    if request.method == 'POST':
+        phase = request.POST['phase']
+        marvel_movies = marvel_movies[marvel_movies['mcu_phase'] == int(phase)]
+        sample_size = min(3, len(marvel_movies))
+        random_movies = fetch_movie_data(marvel_movies['movie_title'].sample(n=sample_size).tolist())
+        random_movies = random_movies[:5]
+        
+        return render(request, 'marvel.html', {'movies': random_movies})
+    
     return render(request, 'marvel.html')
 
 def prime(request):

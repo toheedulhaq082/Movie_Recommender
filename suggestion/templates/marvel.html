@@ -18,17 +18,18 @@
                     {% csrf_token %}
                     
                     <div class="mb-4">
-                        <label class="block text-yellow-500 font-bold mb-2" for="decade">
-                            Decade
+                        <label class="block text-yellow-500 font-bold mb-2" for="phase">
+                            Phase
                         </label>
                         <select
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="decade" name="decade" required>
-                            <option value="">Select a Decade</option>
-                            <option value="1990">1990-2000</option>
-                            <option value="2000">2000-2010</option>
-                            <option value="2010">2010-2020</option>
-                            <option value="2020">2020 onwards</option>
+                            id="phase" name="phase" required>
+                            <option value="">Select a Marvel Phase</option>
+                            <option value="1">Phase 1</option>
+                            <option value="2">Phase 2</option>
+                            <option value="3">Phase 3</option>
+                            <option value="4">Phase 4</option>
+                            <option value="5">Phase 5</option>
                         </select>
                     </div>
                     
@@ -62,6 +63,23 @@
         </div></div>
 
     <div class="min-h-screen grid place-items-center font-mono">
+      <div class='flex justify-center items-center flex-wrap w-auto'>
+        {% for movie in movies %}
+        <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-80 mx-5 my-10">
+            <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl h-50 bg-cover">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" />
+            </div>
+            <div class="p-6 flex gap-4">
+                <h4 class="block mb-2 font-sans text-lg antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 flex-grow">
+                    {{ movie.title }}
+                </h4>
+                <p class="block font-sans text-sm antialiased font-medium leading-relaxed bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
+                    {{ movie.vote_average }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
         {% comment %} {% for d in data %}
         <div class="bg-gray-900 max-w-2/3 rounded-md shadow-lg text-white my-8">
             <div class="md:flex px-4 leading-none max-w-4xl">

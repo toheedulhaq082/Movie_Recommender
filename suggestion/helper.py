@@ -12,6 +12,23 @@ movies = pickle.load(open('./model/movies.pkl', 'rb'))
 # similarity = pickle.load(open('./model/similarity', 'rb'))
 TMDB_SECRET_KEY = os.environ.get("TMDB_SECRET_KEY")
 
+def drop_decimal_but_first(num):
+    
+    num_str = str(num)
+    
+    if '.' in num_str:
+        
+        integer_part, decimal_part = num_str.split('.')
+        
+        decimal_part = decimal_part[0]
+        
+        result = f"{integer_part}.{decimal_part}"
+    else:
+        
+        result = num_str
+    
+    return float(result)
+
 
 def fetch_movie_data(movies):
     TMDB_BASE_URL = 'https://api.themoviedb.org/3'
@@ -29,10 +46,11 @@ def fetch_movie_data(movies):
                     
                     # Append only if poster is not None
                     if poster_url:
+                        vote_average = drop_decimal_but_first(result['vote_average'])
                         movie_info = {
                             'title': result['title'],
                             'poster': poster_url,
-                            'vote_average': result['vote_average'],
+                            'vote_average': vote_average,
                         }
                         movie_data.append(movie_info)
             else:

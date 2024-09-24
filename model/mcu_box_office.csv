@@ -1,0 +1,35 @@
+movie_title,mcu_phase,release_date,tomato_meter,audience_score
+Iron Man,1,05/02/2008,94,91
+The Incredible Hulk,1,6/13/2008,67,70
+Iron Man 2,1,05/07/2010,72,71
+Thor,1,05/06/2011,77,76
+Captain America: The First Avenger,1,7/22/2011,79,75
+The Avengers,1,05/04/2012,91,91
+Iron Man 3,2,05/03/2013,79,78
+Thor: The Dark World,2,11/08/2013,66,75
+Captain America: The Winter Soldier,2,04/04/2014,90,92
+Guardians of the Galaxy,2,08/01/2014,92,92
+Avengers: Age of Ultron,2,05/01/2015,76,83
+Ant-Man,2,7/17/2015,83,85
+Captain America: Civil War,3,05/06/2016,90,89
+Doctor Strange,3,11/04/2016,89,86
+Guardians of the Galaxy Vol. 2,3,05/05/2017,85,87
+Spider-Man: Homecoming,3,07/07/2017,92,87
+Thor: Ragnarok,3,11/03/2017,93,87
+Black Panther,3,2/16/2018,96,79
+Avengers: Infinity War,3,4/27/2018,85,91
+Ant-Man and the Wasp,3,07/06/2018,87,81
+Captain Marvel,3,03/08/2019,79,45
+Avengers: End Game,3,4/26/2019,94,90
+Spider-Man: Far From Home,3,07/02/2019,90,95
+Black Widow,4,07/09/2021,79,91
+Shang-Chi and the Legend of the Ten Rings,4,09/03/2021,91,98
+Eternals,4,11/05/2021,47,78
+Spider-Man: No Way Home,4,12/17/2021,93,98
+Doctor Strange in the Multiverse of Madness,4,06/05/2022,,
+Thor: Love and Thunder,4,08/07/2022,,
+Black Panther: Wakanda Forever,4,11/11/2022,,
+Ant-Man and the Wasp: Quantumania,5,17/02/2023,,
+Guardians of the Galaxy Vol. 3,5,05/05/2023,,
+The Marvels,5,10/11/2023,,
+Deadpool & Wolverine,5,26/07/2024,,
